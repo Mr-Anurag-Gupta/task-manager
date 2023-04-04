@@ -1,0 +1,41 @@
+.taskcard__container {
+    width: 150px;
+    margin: 10px;
+    padding: 5px;
+    color: gray;
+    border-radius: 5px;
+    /* background-color: #DBE4C6; */
+    background-color: #FFEAEA;
+    border: 1px solid #9A208C;
+    font-family: 'Roboto';
+    font-weight: 300;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn_grp {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn_done, .btn_remove {
+    border: 0;
+    outline: none;
+    margin: 5px;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #E11299;
+    transition: 0.2s all ease-in-out;
+}
+
+.btn_done:active, .btn_remove:active {
+    outline: 2px solid #94AF9F;
+}
+
+.btn_done:disabled {
+    background-color: #F5C6EC;
+    color: gray;
+    cursor:not-allowed;
+    pointer-events: none;
+}

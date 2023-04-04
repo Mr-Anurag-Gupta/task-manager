@@ -1,0 +1,35 @@
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  text-align: center;
+  background-color: #e11299;
+  color: white;
+  overflow: hidden;
+}
+
+.nav__container ul, .nav__container li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__container li {
+    padding: 0 8px;
+}
+
+.nav__heading {
+    padding: 0 8px;
+}
+
+.nav__navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav__navbar a:active,
+.nav__navbar a:focus,
+.nav__navbar a:link {
+    color: white;
+}

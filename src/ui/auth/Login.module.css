@@ -1,0 +1,51 @@
+.login__container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 300px;
+    height: 100%;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #FFEAEA;
+    /* border: 1px solid #9A208C; */
+    box-shadow: rgba(154, 32, 140, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.login__heading {
+    text-decoration: underline;
+}
+
+.login__form_email, .login__form_password {
+    border: 1px solid #888;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 5px;
+}
+
+.login__button {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    background-color: #E11299;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px, rgba(154, 32, 140, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.login__button:disabled {
+    background-color:#d3d3d3;
+    color: rgba(0, 0, 0, 0.3);
+    border-color: #efefef;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.login__error {
+    background-color: #FF8787;
+    outline-color: #E26868;
+}
