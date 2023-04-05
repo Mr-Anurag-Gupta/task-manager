@@ -11,7 +11,7 @@ class FetchService {
       let response = await fetch(apiUrl);
       if (!response.ok) throw new Error(response.text());
       const task = await response.json();
-      return task;
+      return { keyName: name, ...task };
     } catch (err) {
       throw err;
     }
@@ -46,6 +46,9 @@ class FetchService {
       const response = await fetch(this.taskManagerJsonAPI, {
         method: "POST",
         body: JSON.stringify(newTask),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
 
       if (!response.ok) throw new Error(response.text());

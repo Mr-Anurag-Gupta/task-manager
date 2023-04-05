@@ -4,7 +4,7 @@ import { useContext, useMemo } from "react";
 import TodoContext from "../../context/todo-context";
 
 export default function TaskList(props) {
-  const { tasks } = useContext(TodoContext);
+  const { tasks, isLoading } = useContext(TodoContext);
 
   const tasksList = tasks.map((task) => {
     return <TaskCard key={task.taskId} task={task} />;
@@ -12,7 +12,15 @@ export default function TaskList(props) {
 
   return (
     <div className={styles.tasklist__container}>
-      {tasks.length > 0 && tasksList}
+      {isLoading === true ? (
+        <div className={styles.tasklist__message}>Loading...</div>
+      ) : tasks.length === 0 ? (
+        <div className={styles.tasklist__message}>
+          No tasks found. Start adding some!
+        </div>
+      ) : (
+        tasksList
+      )}
     </div>
   );
 }

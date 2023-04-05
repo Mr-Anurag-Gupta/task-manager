@@ -3,6 +3,7 @@ import fetchService from "../services/base/FetchService";
 
 const TodoContext = createContext({
   tasks: [],
+  isLoading: undefined,
   onAdd: (taskName) => {},
   onDone: (taskId) => {},
   onRemove: (taskId) => {},
@@ -10,11 +11,13 @@ const TodoContext = createContext({
 
 export const TodoContextProvider = (props) => {
   const [tasks, setTasks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const _tasks = await fetchService.fetchTasks();
       setTasks(_tasks);
+      setIsLoading(false);
     }
     fetchData();
   }, []);
@@ -29,8 +32,7 @@ export const TodoContextProvider = (props) => {
     tasks.forEach((t) => {
       if (t.taskId === task.taskId) t.completed = completed;
     });
-
-    setTasks(tasks);
+    setTasks([...tasks]);
   };
 
   const handleRemove = async (task) => {
@@ -45,10 +47,12 @@ export const TodoContextProvider = (props) => {
     <TodoContext.Provider
       value={{
         tasks: tasks,
+        isLoading: isLoading,
         onAdd: handleAdd,
         onDone: handleDone,
         onRemove: handleRemove,
-      }}>
+      }}
+    >
       {props.children}
     </TodoContext.Provider>
   );
