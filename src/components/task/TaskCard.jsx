@@ -11,14 +11,16 @@ export default function TaskCard(props) {
       <div>{task.taskName}</div>
       <div className={styles.btn_grp}>
         <button
-          disabled={task.completed === true ? true : false}
+          disabled={task.completed}
           onClick={() => context.onDone(task)}
-          className={styles.btn_done}>
+          className={styles.btn_done}
+        >
           Done
         </button>
         <button
           onClick={() => context.onRemove(task)}
-          className={styles.btn_remove}>
+          className={styles.btn_remove}
+        >
           Remove
         </button>
       </div>
