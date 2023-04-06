@@ -29,7 +29,7 @@ class FetchService {
         const { taskId, taskName, completed } = data[key];
         tasks = [...tasks, { keyName: key, taskId, taskName, completed }];
       }
-
+      
       return tasks;
     } catch (err) {
       throw err;
