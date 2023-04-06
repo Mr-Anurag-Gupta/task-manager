@@ -1,14 +1,19 @@
 import styles from "./AddTask.module.css";
-import { useContext, useState } from "react";
-import TodoContext from "../../context/todo-context";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createTask } from "../../redux/action/createTask";
 
-export default function AddTask(props) {
+export default function AddTask() {
   const [taskName, setTaskName] = useState("");
-  const context = useContext(TodoContext);
+  const dispatch = useDispatch();
 
-  const handleAdd = () => {
-    context.onAdd(taskName);
-    setTaskName("");
+  const handleAdd = (event) => {
+    event.preventDefault();
+
+    if (taskName !== "") {
+      dispatch(createTask(taskName));
+      setTaskName("");
+    }
   };
 
   return (
@@ -17,12 +22,13 @@ export default function AddTask(props) {
         value={taskName}
         className={styles.addtask__input}
         onChange={(e) => setTaskName(e.target?.value)}
-        placeholder='Add task here...'
+        placeholder="Add task here..."
       />
       <button
-        type='button'
+        type="button"
         className={styles.addtask__button}
-        onClick={handleAdd}>
+        onClick={handleAdd}
+      >
         Add
       </button>
     </div>

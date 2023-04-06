@@ -1,7 +1,7 @@
 .addtask__container {
-    display: flex;
-    margin: 30px 0;
-    justify-content: center;
+  display: flex;
+  margin: 30px 0;
+  justify-content: center;
 }
 
 .addtask__input {
@@ -16,19 +16,21 @@
 }
 
 .addtask__input:focus {
-  border-color: #888;
+  border-color: #3c0080;
 }
 
 input.addtask__input::placeholder {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .addtask__button {
   padding: 8px;
   border-radius: 5px;
   border: 0;
-  background-color: #E11299;
+  background-color: #e11299;
   color: white;
   cursor: pointer;
-  box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px, rgba(154, 32, 140, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px,
+    rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }

@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import TodoContext from "../../context/todo-context";
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../../redux/action/deleteTask";
+import { updateTask } from "../../redux/action/updateTask";
+
 import styles from "./TaskCard.module.css";
 
 export default function TaskCard(props) {
-  const context = useContext(TodoContext);
+  const dispatch = useDispatch();
   const { task } = props;
 
   return (
@@ -12,13 +14,13 @@ export default function TaskCard(props) {
       <div className={styles.btn_grp}>
         <button
           disabled={task.completed}
-          onClick={() => context.onDone(task)}
+          onClick={() => dispatch(updateTask(task))}
           className={styles.btn_done}
         >
           Done
         </button>
         <button
-          onClick={() => context.onRemove(task)}
+          onClick={() => dispatch(deleteTask(task))}
           className={styles.btn_remove}
         >
           Remove

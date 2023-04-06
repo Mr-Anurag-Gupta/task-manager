@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import App from "./App";
 import { AuthContextProvider } from "./context/auth-context";
-import { TodoContextProvider } from "./context/todo-context";
 import "./index.css";
+import TodoStore from "./redux/store/TodoStore";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <TodoContextProvider>
+      <Provider store={TodoStore}>
         <App />
-      </TodoContextProvider>
+      </Provider>
     </AuthContextProvider>
   </React.StrictMode>
 );
