@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import TaskActionType from "./types/TaskActionType";
+import { createTaskAction } from "./todoActions";
 
 export const createTask = (taskName) => async (dispatch) => {
   try {
@@ -22,10 +22,7 @@ export const createTask = (taskName) => async (dispatch) => {
 
     const data = await response.json();
 
-    dispatch({
-      type: TaskActionType.CREATE,
-      payload: { keyName: data.name, ...newTask },
-    });
+    dispatch(createTaskAction(data.name, newTask));
   } catch (err) {
     throw err;
   }

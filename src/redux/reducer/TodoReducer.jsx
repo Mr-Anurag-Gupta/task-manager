@@ -1,52 +1,42 @@
-import { nanoid } from "nanoid";
-import TaskActionType from "../action/types/TaskActionType";
+import { createReducer, current } from "@reduxjs/toolkit";
+import {
+  getTasksAction,
+  createTaskAction,
+  updateTaskAction,
+  deleteTaskAction,
+} from "../action/todoActions";
 
 let initialState = {
-  tasks: [
-    {
-      keyName: "SomeKeyName",
-      taskId: nanoid(),
-      taskName: "A new task from redux store.",
-      completed: false,
-    },
-  ],
+  tasks: [],
   isLoading: false,
 };
 
-const TodoReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case TaskActionType.FETCH:
-      console.log("Performing FETCH in Reducer!");
-      const { tasks } = action.payload;
-      return {
-        tasks: tasks,
-        isLoading: false,
-      };
-    case TaskActionType.CREATE:
-      console.log("Performing CREATE in Reducer!");
-      return {
-        ...state,
-        tasks: state.tasks?.concat(action.payload),
-      };
-    case TaskActionType.UPDATE:
-      console.log("Performing UPDATE in Reducer!");
+const todoReducer = createReducer(
+  () => initialState, // Lasy initialization.
+  (builder) => {
+    builder.addCase(getTasksAction, (state, action) => {
+      const { tasks, isLoading } = action.payload;
+      state.tasks = tasks;
+      state.isLoading = isLoading;
+    });
+    builder.addCase(createTaskAction, (state, action) => {
+      state.tasks = state.tasks?.concat(action.payload);
+    });
+    builder.addCase(updateTaskAction, (state, action) => {
       const { task } = action.payload;
       let updatedTasks = state.tasks?.map((t) => {
         if (t.taskId !== task.taskId) return t;
         t.completed = task.completed;
         return t;
       });
-      return { ...state, tasks: updatedTasks };
-    case TaskActionType.DELETE:
-      console.log("Performing DELETE in Reducer!");
+      state.tasks = updatedTasks;
+    });
+    builder.addCase(deleteTaskAction, (state, action) => {
       const { taskId } = action.payload;
-      return {
-        ...state,
-        tasks: state.tasks?.filter((t) => t.taskId !== taskId),
-      };
-    default:
-      return state;
+      state.tasks = state.tasks?.filter((t) => t.taskId !== taskId);
+    });
+    builder.addDefaultCase((state, action) => {});
   }
-};
+);
 
-export default TodoReducer;
+export default todoReducer;

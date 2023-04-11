@@ -1,0 +1,32 @@
+.tab__container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.tab__button {
+  margin: 0 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #e11299;
+  text-transform: capitalize;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px,
+    rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.tab__button:hover {
+  box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px,
+    rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,
+    rgba(154, 32, 140, 0.65) 0px 1px 0px inset;
+}
+
+.tab__button:active {
+  box-shadow: rgba(154, 32, 140, 0.89) 0px 0px 0px 2px,
+    rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,
+    rgba(154, 32, 140, 0.65) 0px 1px 0px inset;
+}
