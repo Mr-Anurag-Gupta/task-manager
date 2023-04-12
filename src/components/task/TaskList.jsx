@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TaskCard from "./TaskCard";
 import styles from "./TaskList.module.css";
 import { getTasks } from "../../redux/action/getTasks";
-import TodoStore from "../../redux/store/TodoStore";
 
 export default function TaskList(props) {
-  const { tasks, isLoading } = TodoStore.getState();
+  const tasks = useSelector((state) => state.filter.filteredTasks);
+  const isLoading = useSelector((state) => state.todo.isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {

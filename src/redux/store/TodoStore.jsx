@@ -1,7 +1,11 @@
-import TodoReducer from "../reducer/TodoReducer";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import todoReducer from "../reducer/TodoReducer";
+import filterSlice from "../reducer/FilterSlice";
+import { configureStore } from "@reduxjs/toolkit";
 
-const TodoStore = createStore(TodoReducer, {}, applyMiddleware(thunk));
+const todoStore = configureStore({
+  reducer: { todo: todoReducer, filter: filterSlice.reducer },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  devTools: process.env.NODE_ENV !== "production",
+});
 
-export default TodoStore;
+export default todoStore;

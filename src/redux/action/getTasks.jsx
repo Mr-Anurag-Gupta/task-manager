@@ -1,4 +1,4 @@
-import TaskActionType from "./types/TaskActionType";
+import { getTasksAction } from "./todoActions";
 
 export const getTasks = async (dispatch) => {
   try {
@@ -15,7 +15,7 @@ export const getTasks = async (dispatch) => {
       tasks = [...tasks, { keyName: key, taskId, taskName, completed }];
     }
 
-    dispatch({ type: TaskActionType.FETCH, payload: { tasks: tasks } });
+    dispatch(getTasksAction(tasks));
   } catch (err) {
     throw err;
   }
