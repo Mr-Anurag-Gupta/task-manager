@@ -4,12 +4,12 @@ import { Provider } from "react-redux";
 import App from "./App";
 import { AuthContextProvider } from "./context/auth-context";
 import "./index.css";
-import TodoStore from "./redux/store/TodoStore";
+import TaskStore from "./redux/store/TaskStore";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <Provider store={TodoStore}>
+      <Provider store={TaskStore}>
         <App />
       </Provider>
     </AuthContextProvider>

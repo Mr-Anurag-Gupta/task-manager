@@ -1,9 +1,10 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import {
-  createTaskAction,
-  deleteTaskAction,
-  updateTaskAction,
-} from "../action/todoActions";
+  getAllTasks,
+  createTask,
+  deleteTask,
+  updateTask,
+} from "../action/taskActions";
 
 const initialState = {
   filteredTasks: [],
@@ -48,10 +49,13 @@ const filterSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(createTaskAction, (state, action) => {
+    builder.addCase(getAllTasks.fulfilled, (state, action) => {
+      state.filteredTasks = action.payload?.tasks;
+    });
+    builder.addCase(createTask.fulfilled, (state, action) => {
       state.filteredTasks = state.filteredTasks?.concat(action.payload);
     });
-    builder.addCase(updateTaskAction, (state, action) => {
+    builder.addCase(updateTask.fulfilled, (state, action) => {
       const { task } = action.payload;
       let updatedTasks = state.filteredTasks?.map((t) => {
         if (t.taskId !== task.taskId) return t;
@@ -60,7 +64,7 @@ const filterSlice = createSlice({
       });
       state.tasks = updatedTasks;
     });
-    builder.addCase(deleteTaskAction, (state, action) => {
+    builder.addCase(deleteTask.fulfilled, (state, action) => {
       state.filteredTasks = state.filteredTasks?.filter(
         (t) => t.taskId !== action.payload.taskId
       );
