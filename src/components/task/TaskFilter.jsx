@@ -4,7 +4,7 @@ import classes from "./TaskFilter.module.css";
 import { filterActions } from "../../redux/reducer/FilterSlice";
 
 export default function TaskFilter() {
-  const tasks = useSelector((state) => state.todo.tasks);
+  const tasks = useSelector((state) => state.task.tasks);
   const dispatch = useDispatch();
 
   return (

@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteTask } from "../../redux/action/deleteTask";
-import { updateTask } from "../../redux/action/updateTask";
+import { updateTask, deleteTask } from "../../redux/action/taskActions"
 
 import styles from "./TaskCard.module.css";
 

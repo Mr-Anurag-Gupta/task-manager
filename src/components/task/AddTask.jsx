@@ -1,7 +1,7 @@
 import styles from "./AddTask.module.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createTask } from "../../redux/action/createTask";
+import { createTask } from "../../redux/action/taskActions";
 
 export default function AddTask() {
   const [taskName, setTaskName] = useState("");
@@ -22,13 +22,12 @@ export default function AddTask() {
         value={taskName}
         className={styles.addtask__input}
         onChange={(e) => setTaskName(e.target?.value)}
-        placeholder="Add task here..."
+        placeholder='Add task here...'
       />
       <button
-        type="button"
+        type='button'
         className={styles.addtask__button}
-        onClick={handleAdd}
-      >
+        onClick={handleAdd}>
         Add
       </button>
     </div>

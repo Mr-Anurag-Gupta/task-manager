@@ -1,11 +1,11 @@
-import todoReducer from "../reducer/TodoReducer";
+import taskReducer from "../reducer/TaskReducer";
 import filterSlice from "../reducer/FilterSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
-const todoStore = configureStore({
-  reducer: { todo: todoReducer, filter: filterSlice.reducer },
+const taskStore = configureStore({
+  reducer: { task: taskReducer, filter: filterSlice.reducer },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   devTools: process.env.NODE_ENV !== "production",
 });
 
-export default todoStore;
+export default taskStore;
