@@ -1,0 +1,23 @@
+.nav__heading {
+  width: 100%;
+  max-height: 64px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+}
+
+.nav__logo img {
+  width: 45px;
+  height: 45px;
+}

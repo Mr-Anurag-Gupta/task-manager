@@ -1,12 +1,4 @@
-.tab__container {
-  width: 290px;
-  margin: 0 auto 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.tab__button {
+.btn {
   width: 89px;
   vertical-align: middle;
   padding: 5px;
@@ -36,7 +28,3 @@
       rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,
       rgba(154, 32, 140, 0.65) 0px 1px 0px inset;
   } */
-
-.tab__active {
-  text-decoration: underline;
-}

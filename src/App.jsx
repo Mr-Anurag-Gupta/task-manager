@@ -1,22 +1,24 @@
 import { useContext, useEffect } from "react";
-import AddTask from "./components/task/AddTask";
-import TaskList from "./components/task/TaskList";
-import Navbar from "./ui/navbar/Navbar";
-import Login from "./ui/auth/Login";
-
-import styled from "styled-components";
-import "./App.css";
+import { StyledNavbar } from "./ui/navbar/Navbar";
+import { StyledLogin } from "./ui/auth/Login";
+import { StyledTaskDashboard } from "./components/task/TaskDashboard";
 import AuthContext from "./context/auth-context";
-import TaskFilter from "./components/task/TaskFilter";
 import { useDispatch } from "react-redux";
 import { getAllTasks } from "./redux/action/taskActions";
 
-const Div = styled.div`
-  margin: 10px;
+import "./App.css";
+import styled, { ThemeProvider } from "styled-components";
+import ThemeContext from "./context/theme-context";
+
+const AppContainer = styled.div`
+  height: 100%;
+  margin: auto;
+  background-color: ${(props) => props.theme.body.background};
 `;
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,20 +26,12 @@ function App() {
   });
 
   return (
-    <>
-      <Navbar />
-      <Div>
-        {isLoggedIn ? (
-          <div>
-            <AddTask />
-            <TaskFilter />
-            <TaskList />
-          </div>
-        ) : (
-          <Login />
-        )}
-      </Div>
-    </>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <StyledNavbar />
+        {isLoggedIn ? <StyledTaskDashboard /> : <StyledLogin />}
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 

@@ -1,34 +1,94 @@
 import { useDispatch, useSelector } from "react-redux";
-import classes from "./TaskFilter.module.css";
-
 import { filterActions } from "../../redux/reducer/FilterSlice";
 
-export default function TaskFilter() {
+import classes from "./TaskFilter.module.css";
+import { StyledButton } from "../../ui/button/Button";
+import { useReducer } from "react";
+
+const filterReducer = (state, action) => {
+  switch (action.type) {
+    case "all":
+      return {
+        ...state,
+        isAllActive: true,
+        isPendingActive: false,
+        isCompletedActive: false,
+      };
+    case "pending":
+      return {
+        ...state,
+        isAllActive: false,
+        isPendingActive: true,
+        isCompletedActive: false,
+      };
+    case "completed":
+      return {
+        ...state,
+        isAllActive: false,
+        isPendingActive: false,
+        isCompletedActive: true,
+      };
+  }
+};
+
+export default function TaskFilter({ className }) {
+  const [filterState, filterDispatch] = useReducer(filterReducer, {
+    isAllActive: true,
+    isPendingActive: false,
+    isCompletedActive: false,
+  });
   const tasks = useSelector((state) => state.task.tasks);
   const dispatch = useDispatch();
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    const type = event.target?.value;
+    filterDispatch({ type });
+
+    switch (type) {
+      case "all":
+        dispatch(filterActions.filterAll(tasks));
+        break;
+      case "pending":
+        dispatch(filterActions.filterPending(tasks));
+        break;
+      case "completed":
+        dispatch(filterActions.filterCompleted(tasks));
+        break;
+    }
+  };
+
   return (
-    <div className={classes.tab__container}>
+    <div className={`${classes.tab__container} ${className}`}>
       <div className={classes.tab}>
-        <button
-          className={classes.tab__button}
-          onClick={() => dispatch(filterActions.filterAll(tasks))}>
-          all
-        </button>
+        <StyledButton
+          extraClasses={`${classes.tab__button} ${
+            filterState.isAllActive ? classes.tab__active : ""
+          }`}
+          onClick={handleClick}
+          value='all'>
+          All
+        </StyledButton>
       </div>
       <div className={classes.tab}>
-        <button
-          className={classes.tab__button}
-          onClick={() => dispatch(filterActions.filterPending(tasks))}>
-          pending
-        </button>
+        <StyledButton
+          extraClasses={`${classes.tab__button} ${
+            filterState.isPendingActive ? classes.tab__active : ""
+          }`}
+          onClick={handleClick}
+          value='pending'>
+          Pending
+        </StyledButton>
       </div>
       <div className={classes.tab}>
-        <button
-          className={classes.tab__button}
-          onClick={() => dispatch(filterActions.filterCompleted(tasks))}>
-          completed
-        </button>
+        <StyledButton
+          extraClasses={`${classes.tab__button} ${
+            filterState.isCompletedActive ? classes.tab__active : ""
+          }`}
+          onClick={handleClick}
+          value='completed'>
+          Completed
+        </StyledButton>
       </div>
     </div>
   );

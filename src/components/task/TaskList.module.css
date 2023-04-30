@@ -1,4 +1,11 @@
+.tasklist__wrapper {
+  max-width: 960px;
+  width: 100%;
+  margin: auto;
+}
+
 .tasklist__container {
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;

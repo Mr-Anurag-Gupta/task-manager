@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect, useContext } from "react";
 
 const AuthContext = createContext({
   isLoggedIn: false,
@@ -6,7 +6,11 @@ const AuthContext = createContext({
   onLogout: () => {},
 });
 
-export const AuthContextProvider = (props) => {
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -34,7 +38,7 @@ export const AuthContextProvider = (props) => {
         handleLogin: handleLogin,
         handleLogout: handleLogout,
       }}>
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 };
