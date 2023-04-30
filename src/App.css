@@ -1,13 +1,1 @@
-#root {
-  /* max-width: 1280px; */
-  margin: 0 auto;
-  min-height: 100vh;
-  height: 100%;
-  /* padding: 2rem; */
-  font-family: "Roboto";
-  background-color: #f5c6ec;
-}
 
-#root > button {
-  font-family: inherit;
-}

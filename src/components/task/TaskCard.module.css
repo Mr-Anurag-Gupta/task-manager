@@ -1,41 +1,57 @@
 .taskcard__container {
-    width: 150px;
-    margin: 10px;
-    padding: 5px;
-    color: gray;
-    border-radius: 5px;
-    /* background-color: #DBE4C6; */
-    background-color: #FFEAEA;
-    border: 1px solid #9A208C;
-    font-family: 'Roboto';
-    font-weight: 300;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  max-width: 150px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-family: Montserrat, "Roboto";
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.btn_grp {
-    display: flex;
-    justify-content: space-around;
+.taskcard__heading {
+  height: 60px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
 }
 
-.btn_done, .btn_remove {
-    border: 0;
-    outline: none;
-    margin: 5px;
-    color: white;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #E11299;
-    transition: 0.2s all ease-in-out;
+.taskcard__button_group {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: flex-end; */
 }
 
-.btn_done:active, .btn_remove:active {
-    outline: 2px solid #94AF9F;
+.taskcard__button_done,
+.taskcard__button_remove {
+  border: 1px solid transparent;
+  width: 148px;
+  height: 35px;
+  outline: none;
+  margin: 5px;
+  /* padding: 8px 12px; */
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: inherit;
+  transition: 0.2s all ease-in-out;
 }
 
-.btn_done:disabled {
-    background-color: #F5C6EC;
-    color: gray;
-    cursor:not-allowed;
-    pointer-events: none;
+.taskcard__button_done:active,
+.taskcard__button_remove:active {
+  outline: 2px solid #94af9f;
+}
+
+.taskcard__button_done:disabled {
+  /* background-color: #f5c6ec; */
+  /* opacity: 0.5; */
+  /* color: gray; */
+  cursor: not-allowed;
+  pointer-events: none;
 }

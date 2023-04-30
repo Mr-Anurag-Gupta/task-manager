@@ -1,35 +1,48 @@
-import styles from "./AddTask.module.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTask } from "../../redux/action/taskActions";
 
-export default function AddTask() {
+import styles from "./AddTask.module.css";
+import styled from "styled-components";
+
+export default function AddTask({ className }) {
   const [taskName, setTaskName] = useState("");
   const dispatch = useDispatch();
 
-  const handleAdd = (event) => {
-    event.preventDefault();
+  const handleChange = (event) => {
+    setTaskName(event.target?.value);
+  };
 
-    if (taskName !== "") {
-      dispatch(createTask(taskName));
-      setTaskName("");
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (taskName !== "") {
+        dispatch(createTask(taskName));
+        setTaskName("");
+      }
     }
   };
 
   return (
-    <div className={styles.addtask__container}>
+    <div className={`${styles.addtask__container} ${className}`}>
       <input
         value={taskName}
         className={styles.addtask__input}
-        onChange={(e) => setTaskName(e.target?.value)}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
         placeholder='Add task here...'
       />
-      <button
-        type='button'
-        className={styles.addtask__button}
-        onClick={handleAdd}>
-        Add
-      </button>
     </div>
   );
 }
+
+export const StyledAddTask = styled(AddTask)`
+  input {
+    background-color: ${(props) => props.theme.main.input.background};
+    border-color: ${(props) => props.theme.main.input.border};
+    color: ${(props) => props.theme.main.input.text};
+
+    ::placeholder {
+      color: ${(props) => props.theme.main.input.text};
+    }
+  }
+`;
