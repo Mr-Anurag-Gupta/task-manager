@@ -10,7 +10,7 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-export const AuthContextProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
