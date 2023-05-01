@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import fetchService from "../services/base/FetchService";
 
-const TodoContext = createContext({
+const TaskContext = createContext({
   tasks: [],
   isLoading: undefined,
   onAdd: (taskName) => {},
@@ -9,7 +9,7 @@ const TodoContext = createContext({
   onRemove: (taskId) => {},
 });
 
-export const TodoContextProvider = (props) => {
+export const TaskProvider = (props) => {
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,18 +44,17 @@ export const TodoContextProvider = (props) => {
   };
 
   return (
-    <TodoContext.Provider
+    <TaskContext.Provider
       value={{
         tasks: tasks,
         isLoading: isLoading,
         onAdd: handleAdd,
         onDone: handleDone,
         onRemove: handleRemove,
-      }}
-    >
+      }}>
       {props.children}
-    </TodoContext.Provider>
+    </TaskContext.Provider>
   );
 };
 
-export default TodoContext;
+export default TaskContext;

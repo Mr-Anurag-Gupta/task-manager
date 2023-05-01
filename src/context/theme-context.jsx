@@ -197,7 +197,7 @@ const initialState = {
 
 const ThemeContext = createContext(initialState);
 
-export const ThemeContextProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(theme.dark);
   const [isDark, setIsDark] = useState(true);
 
