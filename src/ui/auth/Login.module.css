@@ -29,21 +29,26 @@
 
 .login__form_email,
 .login__form_password {
-  border: 1px solid #888;
+  border: 1px solid transparent;
   border-radius: 6px;
   padding: 5px 8px;
   margin-bottom: 5px;
+  vertical-align: middle;
   font-family: inherit;
   font-weight: 400;
+  transition-duration: 0.2s;
+  line-height: 20px;
+  transition-property: color, background-color, box-shadow, border-color;
 }
 
 .login__button {
   margin: 10px 0;
-  padding: 8px;
+  padding: 6px 8px;
   border-radius: 5px;
   border: 1px solid transparent;
   outline: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
   /* box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px,
     rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */

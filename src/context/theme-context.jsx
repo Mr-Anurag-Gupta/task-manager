@@ -61,7 +61,7 @@ export const theme = {
       },
     },
   },
-  light: {
+  lightYellowish: {
     body: { background: "#FFF6EB", border: "#FFFFFF", text: "#404040" },
     navbar: {
       background: "#FFF0DE",
@@ -125,6 +125,82 @@ export const theme = {
       },
     },
   },
+  light: {
+    body: { background: "#FFFFFF", border: "#FFFFFF", text: "#444C56" },
+    navbar: {
+      background: "#F6F8FA",
+      text: "#444C56",
+      icon: { background: "#F6F8FA", border: "#FFFFFF" },
+    },
+    main: {
+      background: "#FFFFFF",
+      login: {
+        background: "#F6F8FA",
+        border: "#D8DEE4",
+        text: "#444C56",
+        input: {
+          background: "#f6f8fa",
+          border: "#d0d7de",
+          text: "#1f2328",
+          placeholder: {
+            text: "#656D76",
+          },
+          focus: {
+            background: "#ffffff",
+          },
+        },
+        button: {
+          background: "#404040",
+          border: "#404040",
+          text: "#FFFFFF",
+          hover: {
+            background: "#171513",
+            border: "#FFFFFF",
+            text: "#FFFFFF",
+          },
+        },
+      },
+      input: {
+        background: "#F6F8FA",
+        border: "#D0D7DE",
+        text: "#404040",
+        boxshadow: "inset 0 1px 0 rgba(208, 215, 222, 0.2)",
+        focus: {
+          text: "#adbac7",
+        },
+      },
+      filter: {
+        button: {
+          background: "#F6F8FA",
+          text: "#24292f",
+          hover: {
+            background: "#F3F4F6",
+            border: "rgba(30, 35, 40, 0.15)",
+            text: "#24292f",
+          },
+        },
+      },
+      card: {
+        background: "#FFFFFF",
+        border: "#D0D7DE",
+        text: "#444C56",
+        button: {
+          background: "#F6F8FA",
+          // border: "#404040",
+          text: "#24292f", //"#404040",
+          hover: {
+            background: "#F3F4F6",
+            border: "rgba(30, 35, 40, 0.15)",
+            text: "#24292f",
+          },
+          disabled: {
+            background: "rgba(64, 64, 64, 0.75)",
+            text: "rgba(255, 255, 255, 0.75)",
+          },
+        },
+      },
+    },
+  },
   dark: {
     body: { background: "#22272e", border: "#444c56", text: "#adbac7" },
     navbar: {
@@ -147,11 +223,23 @@ export const theme = {
             border: "#768390",
           },
         },
+        input: {
+          background: "",
+          border: "",
+          text: "",
+          placeholder: {
+            text: "",
+          },
+          focus: {
+            text: "",
+          },
+        },
       },
       input: {
         background: "#22272e",
         border: "#444c56",
         text: "#cdd9e5",
+        boxshadow: "",
         focus: {
           text: "#adbac7",
         },

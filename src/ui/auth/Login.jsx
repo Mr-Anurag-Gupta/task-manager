@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect } from "react";
+import { useCallback, useState, useRef, useEffect, useContext } from "react";
 import { useAuth } from "../../context/auth-context";
 import styles from "./Login.module.css";
 import Input from "../input/Input";
@@ -117,6 +117,16 @@ export const StyledLogin = styled(Login)`
   }
   input {
     outline: none;
+    background-color: ${(props) => props.theme.main.login.input.background};
+    border-color: ${(props) => props.theme.main.login.input.border};
+    color: ${(props) => props.theme.main.login.input.text};
+    :focus {
+      background-color: ${(props) =>
+        props.theme.main.login.input.focus.background};
+    }
+    ::placeholder {
+      color: ${(props) => props.theme.main.login.input.placeholder.text};
+    }
   }
   button {
     background-color: ${(props) => props.theme.main.login.button.background};

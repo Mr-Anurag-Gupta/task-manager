@@ -1,9 +1,9 @@
+import { useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterActions } from "../../redux/reducer/FilterSlice";
-
 import classes from "./TaskFilter.module.css";
-import { StyledButton } from "../../ui/button/Button";
-import { useReducer } from "react";
+import Button from "../../ui/button/Button";
+import styled from "styled-components";
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -93,3 +93,14 @@ export default function TaskFilter({ className }) {
     </div>
   );
 }
+
+const StyledButton = styled(Button)`
+  background-color: ${(props) => props.theme.main.filter.button.background};
+  color: ${(props) => props.theme.main.filter.button.text};
+  &:hover {
+    background-color: ${(props) =>
+      props.theme.main.filter.button.hover.background};
+    border-color: ${(props) => props.theme.main.filter.button.hover.border};
+    color: ${(props) => props.theme.main.filter.button.hover.text};
+  }
+`;

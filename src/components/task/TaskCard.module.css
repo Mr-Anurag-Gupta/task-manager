@@ -9,10 +9,19 @@
   padding: 5px;
   border-radius: 6px;
   border: 1px solid transparent;
+  outline: 2px solid transparent;
   font-size: 1em;
   font-family: Montserrat, "Roboto";
   font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  transition: all 0.2s ease-in-out;
+}
+
+.taskcard__container:hover {
+  /* border-width: 2px;
+  border-color: hsl(160, 100%, 60%); */
+  outline-color: hsl(160, 100%, 60%);
+  transform: translateY(-2px);
 }
 
 .taskcard__heading {

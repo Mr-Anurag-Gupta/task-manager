@@ -18,6 +18,8 @@
   font-family: inherit;
   font-weight: 800;
   text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: color, border, background-color;
   border: 1px solid transparent;
   /* box-shadow: rgba(154, 32, 140, 0.4) 0px 0px 0px 2px,
       rgba(154, 32, 140, 0.65) 0px 4px 6px -1px,

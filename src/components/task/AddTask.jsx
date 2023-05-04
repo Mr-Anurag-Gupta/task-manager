@@ -29,7 +29,7 @@ export default function AddTask({ className }) {
         className={styles.addtask__input}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder='Add task here...'
+        placeholder='Enter task here...'
       />
     </div>
   );
@@ -40,6 +40,7 @@ export const StyledAddTask = styled(AddTask)`
     background-color: ${(props) => props.theme.main.input.background};
     border-color: ${(props) => props.theme.main.input.border};
     color: ${(props) => props.theme.main.input.text};
+    box-shadow: ${(props) => props.theme.main.input.boxshadow};
 
     ::placeholder {
       color: ${(props) => props.theme.main.input.text};
