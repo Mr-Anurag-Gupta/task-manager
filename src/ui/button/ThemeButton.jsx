@@ -1,6 +1,14 @@
 import { useContext } from "react";
 import ThemeContext from "../../context/theme-context";
 import classes from "./ThemeButton.module.css";
+import { BiMoon, BiSun } from "react-icons/bi";
+
+const styles = {
+  fontSize: "24px",
+  fontWeight: "200",
+  transform: "rotate(29deg)",
+  transformOrigin: "center",
+};
 
 const ThemeButton = () => {
   const themeContext = useContext(ThemeContext);
@@ -14,7 +22,13 @@ const ThemeButton = () => {
       <button
         className={`${classes.th__button} ${extraClasses}`}
         onClick={() => themeContext.handleThemeChange(!themeContext.isDark)}
-        type='button'></button>
+        type='button'>
+        {themeContext.isDark ? (
+          <BiSun style={styles} />
+        ) : (
+          <BiMoon style={styles} />
+        )}
+      </button>
     </div>
   );
 };

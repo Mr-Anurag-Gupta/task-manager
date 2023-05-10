@@ -1,34 +1,40 @@
 .th__container {
-  /* position: absolute; */
   right: 10px;
   bottom: 10px;
 }
 
 .th__button {
-  width: 50px;
-  height: 50px;
   padding: 0;
   border: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
   cursor: pointer;
 }
 
 .th__button_light {
-  color: #adbac7;
-  background-color: #444c56;
-  background-image: url("../../assets/moon96.png");
-  background-position: center center;
-  border-radius: 100px;
-  border: 2px solid #adbac7;
-  box-shadow: 0px 1px 5px 0 #adbac7;
+  background-color: #f6f8fa;
+  vertical-align: middle;
+  color: #444c56;
+  transition-property: background-color, color, border, outline;
+  transition-duration: 0.2s;
+}
+
+.th__button_light:hover {
+  background-color: #e6f7ff;
+  color: #0a80a5;
+  font-weight: 600;
 }
 
 .th__button_dark {
   color: #adbac7;
-  background-color: transparent;
-  background-image: url("../../assets/sun96.png");
-  background-position: center center;
-  background-size: 50px 50px;
+  background-color: #2d333b;
   border-radius: 100px;
-  /* border: 2px solid #adbac7; */
-  /* box-shadow: 0px 1px 5px 0 #adbac7; */
+}
+
+.th__button_dark:hover {
+  background-color: rgba(246, 247, 249, 0.05);
 }

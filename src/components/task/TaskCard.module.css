@@ -13,13 +13,10 @@
   font-size: 1em;
   font-family: Montserrat, "Roboto";
   font-weight: bold;
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   transition: all 0.2s ease-in-out;
 }
 
 .taskcard__container:hover {
-  /* border-width: 2px;
-  border-color: hsl(160, 100%, 60%); */
   outline-color: hsl(160, 100%, 60%);
   transform: translateY(-2px);
 }
@@ -34,7 +31,6 @@
 .taskcard__button_group {
   display: flex;
   flex-flow: column;
-  /* justify-content: flex-end; */
 }
 
 .taskcard__button_done,
@@ -44,7 +40,6 @@
   height: 35px;
   outline: none;
   margin: 5px;
-  /* padding: 8px 12px; */
   cursor: pointer;
   border-radius: 6px;
   font-weight: bold;
@@ -58,9 +53,6 @@
 }
 
 .taskcard__button_done:disabled {
-  /* background-color: #f5c6ec; */
-  /* opacity: 0.5; */
-  /* color: gray; */
   cursor: not-allowed;
   pointer-events: none;
 }
